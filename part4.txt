@@ -1,0 +1,37 @@
+Find the author with the name 'Kara Melton' and then select all the articles she has written.
+
+
+
+Find Ontario in the provinces table and then find all the cities in that province.
+
+
+
+Who wrote the article called 'Coding Bootcamps and Emotional Labor'?
+
+
+
+Write a series of SQL queries to find out how many provinces are in Canada.
+
+
+
+How many people live at 4740 McDermott Street?
+
+
+
+What city is 4740 McDermott Street in?
+
+
+
+What province is 4740 McDermott Street in?
+
+
+
+What country is 4740 McDermott Street in?
+
+
+
+Find the person named 'Destini Davis' and then use a series of SQL queries to find what country they live in.
+
+
+
+How many articles has Aditya Mukerjee written?
