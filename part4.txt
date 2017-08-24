@@ -1,37 +1,164 @@
-Find the author with the name 'Kara Melton' and then select all the articles she has written.
+===Find the author with the name 'Kara Melton' and then select all the articles she has written.===
+
+one_to_many_assignment=# SELECT * FROM authors WHERE name = 'Kara Melton';
+ id |    name     |                                                                                                                   bio
+----+-------------+-------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------------------------------
+  8 | Kara Melton | Kara is a Master’s Candidate in the Department of Gender Studies at Queen’s University. She researches questions of racial progress and spends time thinking on community building, startups, tech and design, board games, and donuts.
+(1 row)
+
+one_to_many_assignment=# select title from articles WHERE author_id = 8;
+                                              title
+--------------------------------------------------------------------------------------------------
+ How Tech Business Models Come From Marginalized Communities, But Startups Are Still Mostly White
+ Confronting the Assumption of Whiteness in Virtual Spaces
+(2 rows)
 
 
+===Find Ontario in the provinces table and then find all the cities in that province.===
 
-Find Ontario in the provinces table and then find all the cities in that province.
+one_to_many_assignment=# SELECT * from provinces WHERE name = 'Ontario';
+ id |  name   | year_founded | country_id
+----+---------+--------------+------------
+ 14 | Ontario |         1867 |          1
+(1 row)
 
 
+one_to_many_assignment=# SELECT * from cities WHERE province_id = 14;
+ id |  name   | year_founded | province_id
+----+---------+--------------+-------------
+  8 | Toronto |         1793 |          14
+ 11 | Ottawa  |         1826 |          14
+(2 rows)
 
-Who wrote the article called 'Coding Bootcamps and Emotional Labor'?
 
+======Who wrote the article called 'Coding Bootcamps and Emotional Labor'?=====
+
+one_to_many_assignment=# SELECT title, author_id from articles WHERE title = 'Coding Bootcamps and Emotional Labor';
+                title                 | author_id
+--------------------------------------+-----------
+ Coding Bootcamps and Emotional Labor |         4
+(1 row)
+
+
+one_to_many_assignment=# SELECT name FROM authors WHERE id = 4;
+       name
+-------------------
+ Tilde Ann Thurium
+(1 row)
 
 
 Write a series of SQL queries to find out how many provinces are in Canada.
 
+one_to_many_assignment=# SELECT * FROM provinces;
+ id |           name            | year_founded | country_id
+----+---------------------------+--------------+------------
+ 14 | Ontario                   |         1867 |          1
+ 15 | Quebec                    |         1867 |          1
+ 16 | New Brunswick             |         1867 |          1
+ 17 | New Brunswick             |         1867 |          1
+ 18 | Nova Scotia               |         1867 |          1
+ 19 | Manitoba                  |         1870 |          1
+ 20 | Northwest Territories     |         1870 |          1
+ 21 | British Columbia          |         1871 |          1
+ 22 | Prince Edward Island      |         1873 |          1
+ 23 | Yukon Territory           |         1898 |          1
+ 24 | Alberta                   |         1905 |          1
+ 25 | Saskatchewan              |         1905 |          1
+ 26 | Newfoundland and Labrador |         1949 |          1
+ 27 | Nunavut                   |         1999 |          1
+(14 rows)
 
 
-How many people live at 4740 McDermott Street?
+====How many people live at 4740 McDermott Street?=====
 
+
+one_to_many_assignment=# SELECT address, id FROM residences WHERE address = '4740 McDermott Street';
+        address        | id
+-----------------------+----
+ 4740 McDermott Street |  9
+(1 row)
+
+one_to_many_assignment=# SELECT * FROM persons WHERE residence_id = 9;
+ id |     name     | age | residence_id
+----+--------------+-----+--------------
+ 16 | Malvina King |  28 |            9
+ 17 | Theo Wolff   |  27 |            9
+(2 rows)
 
 
 What city is 4740 McDermott Street in?
 
 
+one_to_many_assignment=# SELECT * FROM residences WHERE address = '4740 McDermott Street';
+ id |        address        | year_built | city_id
+----+-----------------------+------------+---------
+  9 | 4740 McDermott Street |       1923 |      11
+(1 row)
+
+
+one_to_many_assignment=# SELECT * FROM cities WHERE id = 11 ;
+ id |  name  | year_founded | province_id
+----+--------+--------------+-------------
+ 11 | Ottawa |         1826 |          14
+(1 row)
+
 
 What province is 4740 McDermott Street in?
 
+one_to_many_assignment=# SELECT * FROM provinces WHERE id = 14 ;
+ id |  name   | year_founded | country_id
+----+---------+--------------+------------
+ 14 | Ontario |         1867 |          1
+(1 row)
 
 
 What country is 4740 McDermott Street in?
 
+one_to_many_assignment=# one_to_many_assignment=# SELECT * FROM countries WHERE id = 1 ;
+ id |  name  | year_founded | national_animal
+----+--------+--------------+-----------------
+  1 | Canada |         1867 | beaver
+(1 row)
 
 
 Find the person named 'Destini Davis' and then use a series of SQL queries to find what country they live in.
 
+id |     name      | age | residence_id
+----+---------------+-----+--------------
+ 3 | Destini Davis |  37 |            2
+(1 row)
+
+
+one_to_many_assignment=# SELECT * from residences where id = 2;                                                                                                                                                                            id |      address      | year_built | city_id
+----+-------------------+------------+---------
+  2 | 537 Wyman Harbors |       1975 |       8
+(1 row)
+
+
+one_to_many_assignment=# SELECT * from cities WHERE id = 8;
+ id |  name   | year_founded | province_id
+----+---------+--------------+-------------
+  8 | Toronto |         1793 |          14
+(1 row)
+
+
+one_to_many_assignment=# SELECT * from provinces WHERE id = 14;                                                                                                                                                                            id |  name   | year_founded | country_id
+----+---------+--------------+------------
+ 14 | Ontario |         1867 |          1
+(1 row)
+
+
+one_to_many_assignment=# SELECT * from countries WHERE id = 1;
+ id |  name  | year_founded | national_animal
+----+--------+--------------+-----------------
+  1 | Canada |         1867 | beaver
+(1 row)
 
 
 How many articles has Aditya Mukerjee written?
+
+one_to_many_assignment=# SELECT id, title from articles WHERE author_id = 2;
+ id |                          title
+----+---------------------------------------------------------
+  1 | I Can Text You A Pile of Poo, But I Can’t Write My Name
+(1 row)
